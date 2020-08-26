@@ -1,0 +1,29 @@
+<!-- Posts -->
+<main role="main" class="container mt-4">
+  <% @posts.each do |post| %>
+    
+    <div class="jumbotron index-posts">
+      <h1 class=""><%= link_to post.title, post %></h1>
+      <small class="text-muted">
+        <%= post.updated_at.strftime("%A, %B %e, %Y") %> by
+        <%= post.user.username_from_email %> | <%= pluralize(post.views, "View") %> <i class="far fa-eye"></i> | 0 comments <i class="fas fa-comments"></i>
+      </small>
+      <p class="lead my-3"><%= post.body.to_plain_text.truncate_words(25) %></p>
+      <a href="<%= post_path(post) %>" class="btn btn-lg btn-primary">Read More... &raquo;</a>
+    </div>
+  <% end %>
+  <br/>
+</main>
+
+<!-- /Posts -->
+
+<!-- will_paginate -->
+<div class="row">
+    <div class="digg_pagination">
+      <%= will_paginate @posts, :container => false %>
+    </div>
+</div>
+<br/>
+
+<!-- /will_paginate -->
+

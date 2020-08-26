@@ -1,0 +1,35 @@
+<div class="container mt-4 ">
+  <div class="jumbotron jumbotron-fluid index-posts text-center">
+    <div class="container">
+      <h1 class="display-4">New Post</h1>
+      <p class="lead">Fill the form bellow :)</p>
+
+      <%= form_with model: post do |f| %>
+
+          <div class="form-inputs">
+            <%= f.text_field :title, class:'form-control string mb-4', placeholder:'Title' %>
+            
+            Category: &nbsp;&nbsp;<%= f.select :category_id, @categories.map { |cat| [cat.name, cat.id] } %><br/><br/>
+
+            <%= f.label :thumbnail, class:'mt-2 mb-4' %>&nbsp;&nbsp;
+      
+            <%= f.file_field :thumbnail, class:'mb-2' %><br/>
+            
+            <%= f.label :banner, class:'mb-4' %>&nbsp;&nbsp;
+          
+            <%= f.file_field :banner, class:'mt-4 mb-2' %>
+            <%= f.rich_text_area :body, class:'mt-4 mb-2', style:'background-color: white; color: black; text-align:justify' %>
+          </div>
+
+          <div class="form-actions mt-4">
+            <%= f.button :submit, class:'btn btn-lg btn-primary' %>
+          </div>
+
+    <% end %>
+
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="text-center">Categories</h1>
+
+<div class="container">
+  <div class="jumbotron jumbotron info">
+    <div class="list-group">
+      <% @categories.each do |category| %>
+        <%= link_to category.name, category, class:'text-center list-group-item list-group-item-action btn btn-primary' %>
+        <% if current_user && current_user.admin %>
+         <%= link_to 'Edit', edit_category_path(category) %>
+        <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      <% end %>
+      <% if current_user && current_user.admin %>
+        <%= link_to 'New Category', new_category_path %>
+      <% end %>
+    </div>
+  <div>
+</div>
+
+
+
+
+
+
