@@ -1,6 +1,7 @@
 body {
     background: #121313;
-    font-family: 'Sarpanch', sans-serif ;
+    /*font-family: 'Sarpanch', sans-serif ;*/
+    font-family: 'Roboto', sans-serif;
     
 }
 
@@ -68,3 +69,4 @@ h1, h2 {
     color: #e3ebeb;
     border-radius: 4%;
 }
+
